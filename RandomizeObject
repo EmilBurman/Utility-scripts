@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class RandomizeObject : MonoBehaviour {
+public class RandomizeObject : MonoBehaviour 
+	{
 
 	public bool randomizeRotation = true;
 	// This is necessary if you import your models from 3ds
@@ -18,17 +19,15 @@ public class RandomizeObject : MonoBehaviour {
 	public float maxScale = 1.2f;
 
 
-	void Start () {
-
+	void Start () 
+	{
 		// Rotate the model
 		if (randomizeRotation) 
 		{
 			float fix = 0;
 			if (rotationFix)
 				fix = -90;
-
 			this.transform.localRotation = Quaternion.Euler (this.transform.rotation.x + fix, this.transform.rotation.y, Random.Range (0, 360));
-			
 		}
 
 		// change a bit the seize of the model.
@@ -48,7 +47,6 @@ public class RandomizeObject : MonoBehaviour {
 				this.transform.localScale = new Vector3 (vX, vY, vZ);
 			}
 		}
-				
 		// change a bit the colors.
 		if (randomizeColor && randomColor1 != randomColor2) 
 			this.gameObject.GetComponent<MeshRenderer> ().material.color = Color.Lerp(randomColor1, randomColor2, Random.value);
